@@ -1,0 +1,18 @@
+Frutas del Bosque: 
+        imgBg: "linear-gradient(135deg, #9b5de5, #f15fbb)"
+
+Mango Pasion:
+        imgBg: "linear-gradient(135deg, #f9c74f, #f9844a)" 
+
+Verde Detox:
+        imgBg: "linear-gradient(135deg, #43aa8b, #4c9f70)" 
+
+Coco Playa: 
+        imgBg: "linear-gradient(135deg, #ffe5b4, #f4d58c)" 
+
+Proteina Energia:
+        imgBg: "linear-gradient(135deg, #bc9a6c, #d9bf8f)" 
+
+Tropical Sunrise:
+        imgBg: "linear-gradient(135deg, #ffb347, #ff8c42)" 
+
