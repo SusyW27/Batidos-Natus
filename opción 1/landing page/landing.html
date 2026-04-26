@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batidos-Natus | Batidos Naturales</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Estilos del landing -->
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2c5f2d;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../img/logo.png" alt="Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning ms-2" href="../login.html" style="color: #2c2c2c; font-weight: bold;">
+                            <i class="bi bi-box-arrow-in-right"></i> Acceder
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero con video -->
+    <section id="inicio" class="hero-video d-flex align-items-center">
+        <div class="video-overlay"></div>
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videos/hero-batidos.mp4" type="video/mp4">
+        </video>
+        <div class="container position-relative z-3">
+            <div class="row justify-content-center text-center text-white">
+                <div class="col-lg-8 animate-fade-up">
+                    <h1 class="display-3 fw-bold">Batidos <span class="text-warning">100% Naturales</span></h1>
+                    <p class="lead mb-4">El sabor de la fruta fresca, sin conservantes ni azúcares añadidos</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="../login.html" class="btn btn-warning btn-lg px-4 animate-pulse">
+                            <i class="bi bi-cart-plus"></i> Ordena Ahora
+                        </a>
+                        <a href="#beneficios" class="btn btn-outline-light btn-lg px-4">Descubre Más ↓</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #2c5f2d;">¿Por qué elegir <span class="text-warning">Batidos-Natus</span>?</h2>
+            <div class="row g-4">
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="card h-100 text-center border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <div class="display-1">🍓</div>
+                            <h5 class="card-title mt-3">Fruta 100% Real</h5>
+                            <p class="card-text">Seleccionamos las mejores frutas de temporada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="card h-100 text-center border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <div class="display-1">⚡</div>
+                            <h5 class="card-title mt-3">Energía Natural</h5>
+                            <p class="card-text">Vitaminas y minerales para tu día a día</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="card h-100 text-center border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <div class="display-1">🌱</div>
+                            <h5 class="card-title mt-3">Sostenibles</h5>
+                            <p class="card-text">Envases biodegradables</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="card h-100 text-center border-0 shadow-sm p-3">
+                        <div class="card-body">
+                            <div class="display-1">🏆</div>
+                            <h5 class="card-title mt-3">Certificados</h5>
+                            <p class="card-text">Libres de gluten y lactosa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6 animate-on-scroll">
+                    <h2 style="color: #2c5f2d;">Mira cómo preparamos <span class="text-warning">tu batido</span></h2>
+                    <p class="lead">En menos de 3 minutos, tu batido fresco está listo para disfrutar</p>
+                </div>
+                <div class="col-md-6 animate-on-scroll">
+                    <div class="ratio ratio-16x9 shadow rounded">
+                            <video controls poster="img/smoothie-strawberry.jpg">
+                                <source src="videos/smoothie-strawberry.mp4" type="video/mp4">
+                            Tu navegador no soporta video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Productos destacados -->
+<section id="productos" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #2c5f2d;">Nuestros Batidos <span class="text-warning"> Más Pedidos</span></h2>
+        <div class="row g-4">
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-img-top" style="height: 200px; background: url('img/frutas-del-bosque.jpg') center/cover; background-size: cover;">
+                </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Frutas del Bosque</h5>
+                        <p class="card-text">Arándanos, frambuesas, moras y yogurt natural.</p>
+                        <h4 class="text-warning">$4.50</h4>
+                        <a href="../login.html" class="btn btn-success">+ Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-img-top" style="height: 200px; background: url('img/mango-pasion.jpg') center/cover; background-size: cover;"></div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mango Pasión</h5>
+                        <p class="card-text">Mango maduro, maracuyá y un toque de miel.</p>
+                        <h4 class="text-warning">$4.20</h4>
+                        <a href="../login.html" class="btn btn-success">+ Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-img-top" style="height: 200px; background: url('img/coco-playa.jpg') center/cover; background-size: cover;"></div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Coco Playa</h5>
+                        <p class="card-text">Agua de coco, pulpa de coco, piña y ralladura.</p>
+                        <h4 class="text-warning">$4.80</h4>
+                        <a href="../login.html" class="btn btn-success">+ Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="../login.html" class="btn btn-outline-success btn-lg">Ver Menú Completo →</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../img/logo.png" alt="Logo" height="50" class="mb-2" style="filter: brightness(0) invert(1);">
+                    <p>Lo natural es saludable</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces</h5>
+                    <a href="#inicio" class="text-white text-decoration-none d-block">Inicio</a>
+                    <a href="#beneficios" class="text-white text-decoration-none d-block">Beneficios</a>
+                    <a href="#productos" class="text-white text-decoration-none d-block">Productos</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p><i class="bi bi-telephone"></i> +58 1234-5678</p>
+                    <p><i class="bi bi-envelope"></i> hola@batidos-natus.com</p>
+                </div>
+            </div>
+            <hr class="mt-3">
+            <p class="text-center mb-0">© 2025 Batidos-Natus | Hecho con 🍓 para ti</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+</html>
