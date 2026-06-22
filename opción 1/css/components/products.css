@@ -1,0 +1,67 @@
+/* Tarjetas de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2);
+}
+
+.product-img {
+    height: 180px;
+    background-size: cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0.8rem;
+    background-color: #e8f5e9;
+}
+
+.badge-natural {
+    background: #2c5f2dcc;
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.product-info {
+    padding: 1.2rem;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    color: #2d6a4f;
+}
+
+.price {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #e67e22;
+    margin: 0.5rem 0;
+}
+
+.desc {
+    color: #4b5563;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,171 @@
+/* Cabecera */
+.main-header {
+    background: linear-gradient(
+        to right,
+        #099312 0%,
+        #37b43a 20%,
+        #4caf50 40%,
+        #8bc34a 55%,
+        #cddc39 65%,
+        #ffeb3b 75%,
+        #ffc107 85%,
+        #e68e0b 100%
+    );
+
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: white;
+}
+
+.logo-area h1 {
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    margin: auto 0;
+    line-height: 1.2;
+}
+
+.logo-area p {
+    font-size: 0.9rem;
+    opacity: 0.89;
+    font-style: italic;
+    margin:auto 0;
+    line-height: 1.2;
+}
+
+.user-welcome {
+    background: rgba(255, 255, 255, 0.595);
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.user-welcome span {
+    font-weight: 500;
+    color: #0a350b;
+}
+
+/* Estilos para el logo */
+.logo-img {
+    height: 80px;
+    width: auto;
+    max-width: 250px;
+    object-fit: contain;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-area .logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor de acciones del header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Botón Admin */
+.btn-admin-header {
+    background: #e67e22;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-admin-header:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-admin-header:active {
+    transform: translateY(0px);
+}
+
+/* ====== BOTÓN DE CERRAR SESIÓN PARA CLIENTES ====== */
+.btn-logout-client {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn-logout-client:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-logout-client:active {
+    transform: translateY(0px);
+}
+
+/* ====== ESTILOS PARA EL ACCESO ADMIN EN LOGIN ====== */
+.admin-access {
+    background: rgba(255, 255, 255, 0.595);
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.admin-access span {
+    font-weight: 500;
+    color: #0a350b;
+    font-size: 1.1rem;
+}
+
+.admin-access .btn-admin-header {
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.admin-access .btn-admin-header:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.admin-access .btn-admin-header:active {
+    transform: translateY(0);
+}

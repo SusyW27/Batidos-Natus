@@ -1,5 +1,4 @@
-// ========== SISTEMA DE AUTENTICACIÓN ==========
-// Base de datos simulada en localStorage
+// AUTENTICACIÓN - Base de datos simulada en localStorage
 
 const DB_KEYS = {
     USERS: "batidos_natus_users",
@@ -11,11 +10,20 @@ const DB_KEYS = {
 function initDatabase() {
     if (!localStorage.getItem(DB_KEYS.USERS)) {
         const defaultUsers = [
-            { username: "cliente1", password: "batido123" },
-            { username: "ana", password: "natural" },
-            { username: "juan", password: "fruta" }
+            { username: "cliente1", password: "batido123", role: "cliente" },
+            { username: "ana", password: "natural", role: "cliente" },
+            { username: "juan", password: "fruta", role: "cliente" },
+            { username: "admin", password: "admin123", role: "admin" }
         ];
         localStorage.setItem(DB_KEYS.USERS, JSON.stringify(defaultUsers));
+    } else {
+        // Verificar que el admin exista (por si ya había datos)
+        const users = getUsers();
+        const adminExists = users.find(u => u.username === "admin");
+        if (!adminExists) {
+            users.push({ username: "admin", password: "admin123", role: "admin" });
+            saveUsers(users);
+        }
     }
 }
 
@@ -29,8 +37,8 @@ function saveUsers(users) {
     localStorage.setItem(DB_KEYS.USERS, JSON.stringify(users));
 }
 
-// Registrar nuevo usuario
-function registerUser(username, password) {
+// Registrar nuevo usuario (ahora con role)
+function registerUser(username, password, role = "cliente") {
     const users = getUsers();
     
     // Validaciones
@@ -44,24 +52,27 @@ function registerUser(username, password) {
         return { success: false, message: "El nombre de usuario ya existe." };
     }
     
-    users.push({ username, password });
+    users.push({ username, password, role });
     saveUsers(users);
     return { success: true, message: "Registro exitoso. Inicia sesión." };
 }
 
-// Login de usuario
+// Login de usuario (ahora retorna el rol)
 function loginUser(username, password) {
     const users = getUsers();
     const user = users.find(u => u.username === username && u.password === password);
     
     if (user) {
-        localStorage.setItem(DB_KEYS.CURRENT_SESSION, username);
+        localStorage.setItem(DB_KEYS.CURRENT_SESSION, JSON.stringify({
+            username: user.username,
+            role: user.role || "cliente"
+        }));
         // Inicializar carrito para el usuario si no existe
         const cartKey = DB_KEYS.CART_PREFIX + username;
         if (!localStorage.getItem(cartKey)) {
             localStorage.setItem(cartKey, JSON.stringify([]));
         }
-        return { success: true, message: "Bienvenido/a" };
+        return { success: true, message: "Bienvenido/a", role: user.role };
     }
     return { success: false, message: "Usuario o contraseña incorrectos." };
 }
@@ -72,9 +83,18 @@ function logout() {
     window.location.href = "login.html";
 }
 
-// Obtener usuario logueado actual
+// Obtener usuario logueado actual (objeto completo)
 function getCurrentUser() {
-    return localStorage.getItem(DB_KEYS.CURRENT_SESSION);
+    const session = localStorage.getItem(DB_KEYS.CURRENT_SESSION);
+    if (session) {
+        try {
+            return JSON.parse(session);
+        } catch (e) {
+            // Si es texto plano (versión antigua), lo convertimos
+            return { username: session, role: "cliente" };
+        }
+    }
+    return null;
 }
 
 // Verificar si hay sesión activa y redirigir
@@ -87,4 +107,10 @@ function checkAuth() {
     } else if (currentUser && currentPage === "login.html") {
         window.location.href = "dashboard.html";
     }
+}
+
+// Obtener solo el nombre de usuario (para compatibilidad)
+function getCurrentUsername() {
+    const user = getCurrentUser();
+    return user ? user.username : null;
 }

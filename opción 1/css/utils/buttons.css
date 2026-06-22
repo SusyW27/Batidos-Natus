@@ -1,0 +1,65 @@
+.btn-logout {
+    background: #ffb347;
+    border: none;
+    color: #2c2c2c;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.8rem;
+}
+
+.btn-logout:hover {
+    background: #ff9f1c;
+    transform: scale(1.02);
+}
+
+.add-btn {
+    background: #2c5f2d;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #1e4620;
+    transform: scale(1.02);
+}
+
+/* Botones de carrito */
+.btn-qty {
+    background: #f0ad4e;
+    border: none;
+    margin-left: 8px;
+    border-radius: 30px;
+    width: 26px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-qty:hover {
+    transform: scale(1.05);
+}
+
+.btn-remove {
+    background: #dc3545;
+    border: none;
+    border-radius: 30px;
+    margin-left: 6px;
+    padding: 2px 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-remove:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}

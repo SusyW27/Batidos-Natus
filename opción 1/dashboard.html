@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batidos-Natus | Tienda</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="app-container">
+        <!-- Encabezado principal -->
         <div class="main-header">
             <div class="logo-area">
-                <h1>🥤 Batidos-Natus</h1>
-                <p>Energía natural, sabor auténtico</p>
+                <img src="img/logo2.png" alt="Batidos-Natus Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Batidos-Natus</h1>
+                    <p>Energía natural, sabor auténtico</p>
+                </div>
             </div>
             <div class="user-welcome" id="userWelcomeArea">
                 <span>Cargando...</span>
             </div>
         </div>
+        <div class="nav-spacer"></div>
+        
+            <div class="nav-left"></div>
+            <div class="nav-right">
+                <button id="verCatalogoBtn" class="nav-btn active">Catálogo</button>
+                <button id="verHistorialBtn" class="nav-btn">Mis Pedidos</button>
+            </div>
+        
+        <!-- Contenedor principal -->
         <div class="content-pane" id="dynamicContent">
             <div class="loading-spinner">
                 <div class="spinner"></div>
@@ -27,6 +40,7 @@
 
     <script src="js/auth.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/orders.js"></script>
     <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 </body>

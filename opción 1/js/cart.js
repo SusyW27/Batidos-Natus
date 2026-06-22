@@ -21,14 +21,19 @@ function saveCart(cart) {
 function addToCart(product) {
     const cart = getCart();
     const existingIndex = cart.findIndex(item => item.id === product.id);
+
+    let message = '';
     
     if (existingIndex !== -1) {
         cart[existingIndex].quantity += 1;
+        message = `✔ ${product.name} - Cantidad aumentada a ${cart[existingIndex].quantity}`;
     } else {
         cart.push({ ...product, quantity: 1 });
+        message = `✔ ${product.name} añadido al carrito`;
     }
     
     saveCart(cart);
+    showToast(message); //Mensaje de confirmación
     renderShopView(); // Refrescar vista
 }
 
@@ -67,4 +72,41 @@ function calculateTotal() {
 function clearCart() {
     saveCart([]);
     renderShopView();
+}
+
+// Notificación temporal de confirmación
+function showToast(message, type = 'success') {
+    const existingNotification = document.querySelector('.notification-card');
+    if (existingNotification) existingNotification.remove();
+    
+    const notification = document.createElement('div');
+    notification.className = 'notification-card';
+    
+    // Limpiar el mensaje (quitar el check ✓)
+    let cleanMessage = message.replace('✓ ', '');
+    
+    notification.innerHTML = `
+        <div class="notification-header">
+            <span>🛒 Batidos-Natus</span>
+            <span class="notification-price">✓</span>
+        </div>
+        <div class="notification-body">
+            <div class="notification-icon">
+            <img src="img/logo3.png" alt="Batido" style="width: 80px; height: 80px; object-fit: contain;">
+            </div>
+            <div class="notification-info">
+                <h4>${cleanMessage}</h4>
+                <p>Tu pedido se actualizó correctamente</p>
+            </div>
+        </div>
+        <div class="notification-footer">
+            Energía natural, sabor auténtico
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification && notification.remove) notification.remove();
+    }, 3000);
 }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario | Batidos-Natus</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>📦 Gestión de Inventario</h1>
+            <div class="admin-user-info">
+                <span id="adminUser">👤 Admin</span>
+                <a href="admin.html" class="btn-regresar">Regresar</a>
+            </div>
+        </header>
+
+        <!-- Estadísticas de Inventario -->
+        <section class="inventory-stats-grid" id="inventoryStats">
+            <div class="stat-card">
+                <div class="number" id="totalProductos">0</div>
+                <div class="label">📦 Total Productos</div>
+            </div>
+            <div class="stat-card">
+                <div class="number gold" id="valorInventario">$0</div>
+                <div class="label">💰 Valor Inventario</div>
+            </div>
+            <div class="stat-card">
+                <div class="number warning" id="stockBajo">0</div>
+                <div class="label">⚠️ Stock Bajo</div>
+            </div>
+            <div class="stat-card">
+                <div class="number danger" id="agotados">0</div>
+                <div class="label">🚫 Agotados</div>
+            </div>
+        </section>
+
+        <!-- Barra de acciones -->
+        <div class="inventory-actions">
+            <button id="agregarProductoBtn" class="btn-primary">➕ Agregar Producto</button>
+            <input type="text" id="buscarProducto" placeholder="🔍 Buscar producto..." class="search-input">
+            <select id="filtroCategoria" class="filter-select">
+                <option value="todos">📂 Todas las categorías</option>
+                <option value="Energéticos">⚡ Energéticos</option>
+                <option value="Detox">🌿 Detox</option>
+                <option value="Proteicos">💪 Proteicos</option>
+                <option value="Frutales">🍓 Frutales</option>
+            </select>
+            <select id="filtroEstado" class="filter-select">
+                <option value="todos">🔄 Todos los estados</option>
+                <option value="activo">✅ Activos</option>
+                <option value="inactivo">❌ Inactivos</option>
+            </select>
+        </div>
+
+        <!-- Tabla de inventario -->
+        <div class="inventory-table-wrapper">
+            <table class="inventory-table" id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Stock Mínimo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                    <tr><td colspan="8" class="empty-message">No hay productos en inventario</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para agregar/editar producto -->
+    <div class="modal" id="productModal" style="display:none;">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h2 id="modalTitle">Agregar Producto</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="nombreProducto">Nombre del producto *</label>
+                    <input type="text" id="nombreProducto" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoriaProducto">Categoría *</label>
+                    <select id="categoriaProducto" required>
+                        <option value="Energéticos">⚡ Energéticos</option>
+                        <option value="Detox">🌿 Detox</option>
+                        <option value="Proteicos">💪 Proteicos</option>
+                        <option value="Frutales">🍓 Frutales</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="precioProducto">Precio ($) *</label>
+                    <input type="number" id="precioProducto" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="stockProducto">Stock disponible *</label>
+                    <input type="number" id="stockProducto" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="stockMinimoProducto">Stock mínimo *</label>
+                    <input type="number" id="stockMinimoProducto" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="estadoProducto">Estado</label>
+                    <select id="estadoProducto">
+                        <option value="activo">✅ Activo</option>
+                        <option value="inactivo">❌ Inactivo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">💾 Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal" id="confirmModal" style="display:none;">
+        <div class="modal-content">
+            <h2>⚠️ Confirmar eliminación</h2>
+            <p>¿Estás seguro de que deseas eliminar este producto del inventario?</p>
+            <div class="modal-actions">
+                <button id="confirmDeleteBtn" class="btn-danger">🗑️ Eliminar</button>
+                <button id="cancelDeleteBtn" class="btn-secondary">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/inventory-ui.js"></script>
+</body>
+</html>

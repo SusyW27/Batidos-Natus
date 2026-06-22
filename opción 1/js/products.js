@@ -26,14 +26,14 @@ const productsCatalog = [
         id: 4, 
         name: "Coco Playa", 
         price: 4.80, 
-        description: "Agua de coco, pulpa de coco, piña y ralladura.",
+        description: "Agua de coco, pulpa de coco, piña y ralladura de coco.",
         image: "img/coco-playa.jpg",
     },
     { 
         id: 5, 
         name: "Proteína Energía", 
         price: 5.50, 
-        description: "Plátano, avena, proteína vegana y almendras.",
+        description: "Banana, avena, proteína vegana y almendras.",
         image: "img/proteina-energia.jpg",
     },
     { 
@@ -61,7 +61,7 @@ function renderProducts() {
                     <div class="price">$${product.price.toFixed(2)}</div>
                     <div class="desc">${product.description}</div>
                     <button class="add-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">
-                        ➕ Agregar al carrito
+                        ➕ Agregar Pedido
                     </button>
                 </div>
             </div>
@@ -74,7 +74,7 @@ function renderProducts() {
 
 // Renderizar carrito
 function renderCart() {
-    const currentUser = getCurrentUser();
+    const currentUser = getCurrentUsername();
     const cart = getCart();
     const total = calculateTotal();
     
@@ -158,19 +158,62 @@ function attachCartEvents() {
             removeFromCart(id);
         });
     });
-    
+
+    // ===== BOTÓN FINALIZAR PEDIDO (CON DELEGACIÓN) =====
+    // Eliminar eventos anteriores del checkoutBtn para evitar duplicados
+    const oldCheckoutBtn = document.getElementById('checkoutBtn');
+    if (oldCheckoutBtn) {
+        const newCheckoutBtn = oldCheckoutBtn.cloneNode(true);
+        oldCheckoutBtn.parentNode.replaceChild(newCheckoutBtn, oldCheckoutBtn);
+    }
+
+    // Agregar evento al nuevo botón
     const checkoutBtn = document.getElementById('checkoutBtn');
     if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
+        checkoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🔄 Botón Finalizar Pedido clickeado');
+            
             const cart = getCart();
+            console.log('Carrito:', cart);
+            
             if (cart.length === 0) {
-                alert("Tu carrito está vacío. Agrega algún batido.");
+                alert("🛒 Tu carrito está vacío. Agrega algún batido.");
                 return;
             }
-            const total = calculateTotal();
+
             const currentUser = getCurrentUser();
-            alert(`¡Gracias por tu compra, ${currentUser}! Total: $${total}. Disfruta tus batidos naturales.`);
-            clearCart();
+            console.log('Usuario:', currentUser);
+            
+            if (!currentUser) {
+                alert("⚠️ Debes iniciar sesión para finalizar el pedido.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            const total = parseFloat(calculateTotal());
+            console.log('Total:', total);
+            
+            // Verificar que la función crearPedido existe
+            if (typeof crearPedido !== 'function') {
+                alert('❌ Error: El módulo de pedidos no está cargado correctamente.');
+                console.error('crearPedido no está definida. Revisa que orders.js esté cargado.');
+                return;
+            }
+            
+            // Crear el pedido
+            const resultado = crearPedido(currentUser, cart, total);
+            console.log('Resultado:', resultado);
+            
+            if (resultado.success) {
+                alert(`✅ ¡Pedido ${resultado.pedido.numero} confirmado!\nTotal: $${total.toFixed(2)}\nEstado: Pendiente\n\n📦 Disfruta tus batidos, ${currentUser}!`);
+                clearCart();
+                renderShopView();
+            } else {
+                alert(`❌ Error: ${resultado.message}`);
+            }
         });
+    } else {
+        console.warn('⚠️ No se encontró el botón #checkoutBtn');
     }
 }

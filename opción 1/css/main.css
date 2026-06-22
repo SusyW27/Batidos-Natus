@@ -1,0 +1,27 @@
+/* CSS PRINCIPAL */
+
+/* 1. BASE - Reset y estilos fundamentales */
+@import 'base/reset.css';
+
+/* 2. LAYOUT - Estructura de la página */
+@import 'layout/container.css';
+@import 'layout/header.css';
+@import 'layout/content.css';
+
+/* 3. COMPONENTES - Elementos específicos */
+@import 'components/products.css';
+@import 'components/cart.css';
+@import 'components/auth.css';
+@import 'components/notification.css';
+@import 'components/admin.css';
+@import 'components/modal.css';
+@import 'components/orders.css';
+@import 'components/inventory.css';
+
+/* 4. UTILIDADES - Elementos reutilizables */
+@import 'utils/buttons.css';
+@import 'utils/loading.css';
+@import 'utils/animations.css';
+
+/* 5. RESPONSIVE */
+@import 'utils/responsive.css';

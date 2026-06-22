@@ -1,0 +1,123 @@
+dashboard
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batidos-Natus | Tienda</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-header">
+            <div class="logo-area">
+                <img src="img/logo2.png" alt="Batidos-Natus Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Batidos-Natus</h1>
+                    <p>Energía natural, sabor auténtico</p>
+                </div>
+            </div>
+            <div class="user-welcome" id="userWelcomeArea">
+                <span>Cargando...</span>
+            </div>
+        </div>
+        <div class="content-pane" id="dynamicContent">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Cargando productos...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+index
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Batidos-Natus | Tienda de Batidos Naturales</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container" id="appRoot">
+        <!-- Header dinámico -->
+        <div class="main-header">
+            <div class="logo-area">
+                <img src="img/logo1.png" alt="Batidos-Natus Logo" class="logo-img">
+            </div>
+            <div class="user-welcome" id="userWelcomeArea">
+                <span>🔐 Cargando...</span>
+            </div>
+        </div>
+        <div class="content-pane" id="dynamicContent">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Cargando aplicación...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+login
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batidos-Natus | Acceso</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-header">
+            <div class="logo-area">
+                <img src="img/logo2.png" alt="Batidos-Natus Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Batidos-Natus</h1>
+                    <p>Energía natural, sabor auténtico</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-pane">
+            <div class="auth-panel">
+                <div class="auth-card">
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" id="tabLoginBtn">Iniciar Sesión</button>
+                        <button class="tab-btn" id="tabRegisterBtn">Registrarse</button>
+                    </div>
+                    <div id="authFormContainer">
+                        <!-- Formulario Login por defecto -->
+                        <form id="loginForm" class="auth-form">
+                            <div class="input-group">
+                                <label>👤 Usuario</label>
+                                <input type="text" id="loginUsername" placeholder="Ej: cliente1" required>
+                            </div>
+                            <div class="input-group">
+                                <label>🔒 Contraseña</label>
+                                <input type="password" id="loginPassword" placeholder="********" required>
+                            </div>
+                            <button type="submit" class="auth-submit">Ingresar</button>
+                            <div id="authMessage" class="error-msg"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

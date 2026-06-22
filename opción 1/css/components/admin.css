@@ -1,0 +1,262 @@
+/* Estilos del Panel de Admin */
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c5f2d;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.admin-header .admin-user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Botón de Inventario */
+.btn-inventario {
+    background: #f7a502;
+    color: #0a330b;
+    padding: 8px 18px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-inventario:hover {
+    background: #f7be02;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-inventario:active {
+    transform: translateY(0);
+}
+
+/* Botón: Cerrar Sesión */
+.btn-cerrar-sesion {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-cerrar-sesion:hover {
+    background: #e74c3c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-cerrar-sesion:active {
+    transform: translateY(0);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #f8f4f0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.stat-card .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c5f2d;
+}
+
+.stat-card .number.gold {
+    color: #e67e22;
+}
+
+.stat-card .label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.pedidos-table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.pedidos-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pedidos-table th {
+    background: #2c5f2d;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.pedidos-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.pedidos-table tr:hover td {
+    background: #f9f9f9;
+}
+
+.pedidos-table .empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.estado-badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.estado-pendiente { background: #f39c12; color: white; }
+.estado-preparando { background: #3498db; color: white; }
+.estado-enviado { background: #9b59b6; color: white; }
+.estado-entregado { background: #2ecc71; color: white; }
+
+.estado-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+/* Estilos para el acceso admin en login */
+.admin-access {
+    background: rgba(255, 255, 255, 0.595);
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.admin-access span {
+    font-weight: 500;
+    color: #0a350b;
+    font-size: 1.1rem;
+}
+
+.admin-access .btn-admin-header {
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+}
+
+.admin-access .btn-admin-header:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.admin-access .btn-admin-header:active {
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .admin-header { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    .admin-header .admin-user-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn-inventario,
+    .btn-cerrar-sesion {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    
+    .stats-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .pedidos-table th, 
+    .pedidos-table td { 
+        padding: 8px 10px; 
+        font-size: 0.8rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-inventario,
+    .btn-cerrar-sesion {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+    
+    .stat-card .number { 
+        font-size: 1.4rem; 
+    }
+    
+    .pedidos-table th, 
+    .pedidos-table td { 
+        font-size: 0.7rem; 
+        padding: 6px 8px; 
+    }
+}

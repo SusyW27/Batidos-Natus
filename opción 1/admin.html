@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Batidos-Natus</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>📊 Panel de Administración</h1>
+            <div class="admin-user-info">
+                <span id="adminUser">👤 Admin</span>
+                <a href="inventory.html" class="btn-inventario">Inventario</a>
+                <a href="#" id="logoutBtn" class="btn-cerrar-sesion">🔐 Cerrar Sesión</a>
+            </div>
+        </header>
+
+        <section class="stats-grid" id="statsContainer">
+            <div class="stat-card">
+                <div class="number" id="totalPedidos">0</div>
+                <div class="label">📦 Total Pedidos</div>
+            </div>
+            <div class="stat-card">
+                <div class="number gold" id="totalVentas">$0</div>
+                <div class="label">💰 Total Ventas</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="pendientes">0</div>
+                <div class="label">⏳ Pendientes</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="preparando">0</div>
+                <div class="label">👨‍🍳 Preparando</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="enviados">0</div>
+                <div class="label">🚚 Enviados</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="entregados">0</div>
+                <div class="label">✅ Entregados</div>
+            </div>
+        </section>
+
+        <div class="pedidos-table-wrapper">
+            <table class="pedidos-table" id="pedidosTable">
+                <thead>
+                    <tr>
+                        <th># Pedido</th>
+                        <th>Cliente</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="pedidosBody">
+                    <tr><td colspan="7" class="empty-message">No hay pedidos registrados</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
