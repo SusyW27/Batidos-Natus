@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleado | Batidos-Natus</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-header">
+            <div class="logo-area">
+                <img src="img/logo2.png" alt="Batidos-Natus Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Batidos-Natus</h1>
+                    <p>Energía natural, sabor auténtico</p>
+                </div>
+            </div>
+            <div class="user-welcome" id="userWelcomeArea">
+                <span>Cargando...</span>
+            </div>
+        </div>
+
+        <div class="nav-bar">
+            <div class="nav-left">
+                <button class="nav-btn active" id="verPedidosBtn">Pedidos Activos</button>
+                <button class="nav-btn" id="verHistorialBtn">Historial</button>
+                <button class="nav-btn" id="verFacturasBtn">Facturas</button>
+            </div>
+            <div class="nav-right">
+                <span class="nav-user" id="userDisplay">Empleado</span>
+            </div>
+        </div>
+
+        <div class="content-pane" id="dynamicContent">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Cargando pedidos...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="facturaPanel" class="factura-panel">
+        <div class="factura-panel-header">
+            <h3>Cobrar / Facturar</h3>
+            <button id="cerrarFacturaPanel" class="btn-cerrar-panel">&times;</button>
+        </div>
+        
+        <div id="facturaContenido" class="factura-contenido">
+            <div class="factura-placeholder">
+                <p>Selecciona un pedido para facturar</p>
+            </div>
+        </div>
+        
+        <div id="formularioPago" class="formulario-pago" style="display:none;">
+            <h4>Datos de Cobro</h4>
+            <div class="form-pago-row">
+                <div class="form-pago-group">
+                    <label>Método de Pago</label>
+                    <select id="metodoPago" class="input-pago">
+                        <option value="efectivo_bs">Efectivo Bs.</option>
+                        <option value="efectivo_usd">Efectivo USD</option>
+                        <option value="transferencia">Transferencia</option>
+                        <option value="pago_movil">Pago Móvil</option>
+                        <option value="tarjeta_debito">Tarjeta Débito</option>
+                        <option value="tarjeta_credito">Tarjeta Crédito</option>
+                    </select>
+                </div>
+                <div class="form-pago-group">
+                    <label>Moneda</label>
+                    <select id="monedaPago" class="input-pago">
+                        <option value="Bs">Bs.</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-pago-row" id="montoBsContainer" style="display:none;">
+                <div class="form-pago-group" style="flex:1;">
+                    <label>Monto en Bolívares (Bs.)</label>
+                    <input type="number" id="montoBs" class="input-pago" placeholder="Ej: 45.50" step="0.01" min="0">
+                    <small style="color:#888; font-size:0.7rem;">Ingresa el equivalente en Bs. según la tasa del día</small>
+                </div>
+            </div>
+            
+            <div class="form-pago-row">
+                <div class="form-pago-group">
+                    <label>Tipo de Servicio</label>
+                    <select id="tipoServicio" class="input-pago">
+                        <option value="mesa">Mesa</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="para_llevar">Para llevar</option>
+                    </select>
+                </div>
+                <div class="form-pago-group">
+                    <label>Tiempo (min)</label>
+                    <input type="number" id="tiempoAtencion" class="input-pago" placeholder="Ej: 10" min="0" value="5">
+                </div>
+            </div>
+            <div class="form-pago-row">
+                <div class="form-pago-group" style="flex:1;">
+                    <label>Observaciones</label>
+                    <input type="text" id="observacionesPago" class="input-pago" placeholder="Notas adicionales...">
+                </div>
+            </div>
+            <div id="mensajePago" style="display:none;"></div>
+        </div>
+        
+        <div class="factura-panel-footer">
+            <button class="btn-imprimir" onclick="imprimirFactura()" id="btnImprimir" style="display:none;">Imprimir</button>
+            <button class="btn-confirmar-pago" onclick="confirmarPago()" id="btnConfirmarPago">Cobrar</button>
+            <button class="btn-pagar-tarjeta" onclick="toggleFormularioPago()" id="btnPagarTarjeta">Mostrar Datos de Pago</button>
+        </div>
+    </div>
+
+    <div id="facturaOverlay" class="factura-overlay"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/empleado.js"></script>
+    <script src="js/facturacion.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

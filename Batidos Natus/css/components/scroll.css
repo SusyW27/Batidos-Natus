@@ -1,0 +1,85 @@
+.scroll-btn {
+    position: fixed;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #2c5f2d;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(44, 95, 45, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.scroll-btn:hover {
+    background: #1e4620;
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(44, 95, 45, 0.5);
+}
+
+.scroll-btn:active {
+    transform: scale(0.9);
+}
+
+.scroll-down {
+    bottom: 30px;
+    animation: bounceDown 2s ease-in-out infinite;
+}
+
+.scroll-up {
+    bottom: 100px;
+    background: #e67e22;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+}
+
+.scroll-up:hover {
+    background: #d35400;
+    box-shadow: 0 6px 25px rgba(230, 126, 34, 0.5);
+}
+
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        right: 15px;
+    }
+    .scroll-down {
+        bottom: 20px;
+    }
+    .scroll-up {
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        right: 12px;
+    }
+    .scroll-down {
+        bottom: 15px;
+    }
+    .scroll-up {
+        bottom: 70px;
+    }
+}

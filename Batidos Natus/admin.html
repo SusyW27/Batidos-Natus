@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Batidos-Natus</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/libs/html2canvas.min.js"></script>
+    <script src="js/libs/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Panel de Administración</h1>
+            <div class="admin-user-info">
+                <span id="adminUser">Admin</span>
+                <div id="stockAlertaContainer" style="display:none; position:relative;">
+                    <button id="stockAlertaBtn" class="btn-stock-alerta" title="Productos con stock bajo">
+                        Stock Bajo
+                        <span id="stockBadge" class="stock-badge-bubble">0</span>
+                    </button>
+                </div>
+                <a href="inventory.html" class="btn-inventario">Inventario</a>
+                <a href="#" id="logoutBtn" class="btn-cerrar-sesion">Cerrar Sesión</a>
+            </div>
+        </header>
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="dashboard">Principal</button>
+            <button class="admin-tab" data-tab="usuarios">Usuarios</button>
+        </div>
+
+        <div id="tabDashboard" class="admin-tab-content active">
+            <section class="stats-grid" id="statsContainer">
+                <div class="stat-card">
+                    <div class="number" id="totalPedidos">0</div>
+                    <div class="label">Total Pedidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number gold" id="totalVentas">$0</div>
+                    <div class="label">Total Ventas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="pendientes">0</div>
+                    <div class="label">Pendientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number success" id="pagados">0</div>
+                    <div class="label">Pagados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number danger" id="cancelados">0</div>
+                    <div class="label">Cancelados</div>
+                </div>
+            </section>
+
+            <div class="filtros-container">
+                <div class="filtros-header">
+                    <h3>Buscar Pedidos</h3>
+                    <div class="filtros-actions">
+                        <button id="buscarFiltrosBtn" class="btn-filtrar">Buscar</button>
+                        <button id="limpiarFiltrosBtn" class="btn-limpiar">Limpiar</button>
+                        <span id="resultadosContador" style="display:none; font-size:0.85rem; color:#888;"></span>
+                    </div>
+                </div>
+                <div class="filtros-grid">
+                    <div class="filtro-group">
+                        <label>Fecha Desde</label>
+                        <input type="date" id="filtroFechaDesde" class="filtro-input">
+                    </div>
+                    <div class="filtro-group">
+                        <label>Fecha Hasta</label>
+                        <input type="date" id="filtroFechaHasta" class="filtro-input">
+                    </div>
+                    <div class="filtro-group">
+                        <label>Estado</label>
+                        <select id="filtroEstado" class="filtro-input">
+                            <option value="">Todos los estados</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Pagado">Pagado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </select>
+                    </div>
+                    <div class="filtro-group">
+                        <label>Cliente</label>
+                        <input type="text" id="filtroCliente" class="filtro-input" 
+                               placeholder="Escribe para buscar..." 
+                               oninput="mostrarSugerenciasCliente()"
+                               onblur="setTimeout(ocultarSugerencias, 300)">
+                    </div>
+                    <div class="filtro-group">
+                        <label>Número de Pedido</label>
+                        <input type="text" id="filtroNumero" class="filtro-input" 
+                               placeholder="Ej: BAT-0001">
+                    </div>
+                </div>
+            </div>
+
+            <section class="charts-section">
+                <div class="charts-header">
+                    <h2>Análisis de Ventas</h2>
+                    <button id="exportarPDFBtn" class="btn-export-pdf" onclick="exportarGraficasPDF()">
+                        Exportar PDF
+                    </button>
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Ventas Últimos 7 Días</h3>
+                        <div class="chart-container">
+                            <canvas id="chartSemana"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Distribución por Estado</h3>
+                        <div class="chart-container chart-donut">
+                            <canvas id="chartEstados"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Ventas Mensuales</h3>
+                        <div class="chart-container">
+                            <canvas id="chartMeses"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Productos Más Vendidos</h3>
+                        <div class="chart-container chart-top">
+                            <canvas id="chartTopProductos"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="pedidos-table-wrapper">
+                <table class="pedidos-table" id="pedidosTable">
+                    <thead>
+                        <tr>
+                            <th># Pedido</th>
+                            <th>Cliente</th>
+                            <th>Productos</th>
+                            <th>Total</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pedidosBody">
+                        <tr><td colspan="7" class="empty-message">No hay pedidos registrados</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tabUsuarios" class="admin-tab-content">
+            <div class="section-header">
+                <h2>Gestión de Usuarios</h2>
+                <button id="crearUsuarioBtn" class="btn-primary">Nuevo Usuario</button>
+            </div>
+            <div class="usuarios-table-wrapper">
+                <table class="usuarios-table" id="usuariosTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuariosBody">
+                        <tr><td colspan="6" class="empty-message">Cargando usuarios...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="userModal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="userModalTitle">Nuevo Usuario</h2>
+                <button class="modal-close" onclick="cerrarModalUsuario()">&times;</button>
+            </div>
+            <form id="userForm" onsubmit="guardarUsuario(event)">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label>Nombre de usuario *</label>
+                    <input type="text" id="userNombre" placeholder="Ej: nuevo_empleado" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña <span id="passwordRequired" style="color:#e74c3c;">*</span></label>
+                    <input type="password" id="userPassword" placeholder="Mínimo 3 caracteres">
+                    <small style="color:#888;">Dejar vacío para mantener la contraseña actual (al editar)</small>
+                </div>
+                <div class="form-group">
+                    <label>Rol</label>
+                    <select id="userRol">
+                        <option value="cliente">Cliente</option>
+                        <option value="empleado">Empleado</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                        <input type="checkbox" id="userActivo" checked>
+                        Usuario activo
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%; padding:12px; font-size:1rem;">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="stockModal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Productos con Stock Bajo</h2>
+                <button class="modal-close" onclick="cerrarModalStock()">&times;</button>
+            </div>
+            <div id="stockModalBody" style="padding:5px 0;">
+                <div class="stock-loading">
+                    <div class="spinner"></div>
+                    <p style="margin-top:10px;">Verificando stock...</p>
+                </div>
+            </div>
+            <div id="stockModalCount" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/admin-filtros.js"></script>
+    <script src="js/admin-users.js"></script>
+    <script src="js/admin-charts.js"></script>
+    <script src="js/admin-reportes-pdf.js"></script>
+    <script src="js/admin-stock-alerta.js"></script>
+</body>
+</html>

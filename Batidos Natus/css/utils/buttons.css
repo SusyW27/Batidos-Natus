@@ -1,0 +1,79 @@
+.btn-logout {
+    background: #ffb347;
+    border: none;
+    color: #2c2c2c;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.8rem;
+}
+
+.btn-logout:hover {
+    background: #ff9f1c;
+    transform: scale(1.02);
+}
+
+.add-btn {
+    background: #1c7721;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #208525;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.btn-qty {
+    background: #ff9502;
+    border: none;
+    margin-left: 8px;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: 0.2s;
+    color: #333;
+}
+
+.btn-qty:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.btn-remove {
+    background: #dc3545;
+    border: none;
+    border-radius: 30px;
+    margin-left: 6px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-remove:hover {
+    background: #c82333;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}

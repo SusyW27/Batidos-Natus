@@ -1,0 +1,24 @@
+@import 'base/reset.css';
+
+@import 'layout/container.css';
+@import 'layout/header.css';
+@import 'layout/content.css';
+
+@import 'components/products.css';
+@import 'components/cart.css';
+@import 'components/auth.css';
+@import 'components/notification.css';
+@import 'components/admin.css';
+@import 'components/modal.css';
+@import 'components/orders.css';
+@import 'components/inventory.css';
+@import 'components/empleado.css';
+@import 'components/facturacion.css';
+@import 'components/password-toggle.css';
+@import 'components/scroll.css';
+@import 'components/admin-stock-alerta.css';
+
+@import 'utils/buttons.css';
+@import 'utils/loading.css';
+@import 'utils/animations.css';
+@import 'utils/responsive.css';

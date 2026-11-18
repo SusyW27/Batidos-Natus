@@ -1,0 +1,80 @@
+Batidos Natus/
+|----.gitignore
+|----admin.html
+|----batidos_natus.sql
+|----dashboard.html
+|----empleado.html
+|----estructura.txt
+|----index.html
+|----inventory.html
+|----login.html
+|----README.md
+|
+|---api/
+|	|--auth.php
+|	|--config.php
+|	|--empleado.php
+|	|--estadisticas_graficas.php
+|	|--facturacion.php
+|	|--pedidos.php
+|	|--pedidos_filtro.php
+|	|--productos.php
+|	|--stock_alerta.php
+|	|--usuarios.php
+|
+|---css/main.css
+|	|--base/reset.css
+|	|--components/
+|	|   |--admin.css
+|	|   |--admin-stock-alerta.css
+|	|   |--auth.css
+|	|   |--cart.css
+|	|   |--empleado.css
+|	|   |--facturacion.css
+|	|   |--inventory.css
+|	|   |--modal.css
+|	|   |--notification.css
+|	|   |--passwors-toggle.css
+|	|   |--products.css
+|	|   |--scroll.css
+|	|
+|	|--layout/
+|	|   |--container.css
+|	|   |--content.css
+|	|   |--header.css
+|	|
+|	|--utils/
+|	|   |--animations.css
+|	|   |--buttons.css
+|	|   |--loading.css
+|	|   |--responsive.css
+|
+|---img/productos/ (*/imagenes de los productos y logo de el proyecto*/)
+|
+|---js/
+|	|--libs/
+|	|   |--html2canvas.min.js
+|	|   |--jspdf.umd.min.js
+|	|
+|	|--admin.js
+|	|--admin-charts.js
+|	|--admin-filtros.js
+|	|--admin-reportes-pdf.js
+|	|--admin-stock-alerta.js
+|	|--admin-users.js
+|	|--auth.js
+|	|--carts.js
+|	|--config.js
+|	|--empleado.js
+|	|--facturacion.js
+|	|--inventory.js
+|	|--inventory-ui.js
+|	|--main.js
+|	|--orders.js
+|	|--products.js
+|
+|---landing page/landing.html
+|	|--css/landing.css
+|	|--img/
+|	|--js/landing.js
+|	|--videos/dowland.mp4
