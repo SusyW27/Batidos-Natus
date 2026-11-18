@@ -1,4 +1,4 @@
-# 🥤 Batidos-Natus | Tienda de Batidos Naturales
+# Batidos-Natus | Tienda de Batidos Naturales
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/SusyW27/batidos-natus)](https://github.com/SusyW27/batidos-natus/stargazers)
@@ -6,7 +6,7 @@
 
 > **Sistema completo de e-commerce** para una tienda de batidos naturales con autenticación de usuarios, carrito de compras persistente y catálogo de productos. Desarrollado con HTML5, CSS3 y JavaScript vanilla.
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 - [Demo](#-demo)
 - [Características](#-características)
 - [Tecnologías](#-tecnologías)
@@ -19,16 +19,16 @@
 - [Contribuciones](#-contribuciones)
 - [Licencia](#-licencia)
 
-## 🎯 Demo
+## Demo
 
 **Credenciales de prueba:**
 - Usuario: `cliente1` | Contraseña: `batido123`
 - Usuario: `ana` | Contraseña: `natural`
 - Usuario: `juan` | Contraseña: `fruta`
 
-## ✨ Características
+## Características
 
-### 🔐 Sistema de Autenticación
+### Sistema de Autenticación
 - Registro de nuevos usuarios con validación
 - Inicio de sesión seguro
 - Persistencia de sesión con localStorage
@@ -42,14 +42,14 @@
 - Proceso de checkout simulado
 - Carritos independientes por usuario
 
-### 🎨 Interfaz de Usuario
+### Interfaz de Usuario
 - Diseño moderno con efecto glassmorphism
 - Paleta de colores naturales (verde/naranja)
 - Animaciones y transiciones suaves
 - Responsive para móviles, tablets y desktop
 - Feedback visual en todas las acciones
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 | Tecnología | Descripción |
 |------------|-------------|
